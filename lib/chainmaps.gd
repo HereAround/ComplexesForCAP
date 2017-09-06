@@ -186,6 +186,12 @@ DeclareProperty( "IsQuasiIsomorphism", IsChainOrCochainMorphism );
 #!  @Section Operations
 
 #!  @Description
+#!  The input is chain (resp. cochain) morphism and an integer $n$. The output is the component of $\phi$ in index $n$, i.e., $\phi_n$(resp. $\phi^n$).
+#!  @Arguments phi, n
+#!  @Returns a morphism
+KeyDependentOperation( "MorphismAt", IsChainOrCochainMorphism, IsInt, ReturnTrue );
+
+#!  @Description
 #!  The command sets an upper bound to the morphism $\phi$. An upper bound of $\phi$ is an integer $u$
 #!  with $\phi_{i\geq u}= 0$. The integer $u$ will be called **active** upper bound of $\phi$. If $\phi$ already has an
 #!  active upper bound, say $u^\prime$, then $u^\prime$ will be replaced by $u$ only if $u\leq u^\prime$.
@@ -227,9 +233,6 @@ DeclareOperation( "ActiveUpperBound", [ IsChainOrCochainMorphism ] );
 #!  @Returns an integer
 DeclareOperation( "ActiveLowerBound", [ IsChainOrCochainMorphism ] );
 
-
-KeyDependentOperation( "MorphismAt", IsChainOrCochainMorphism, IsInt, ReturnTrue );
-
 #!  @Description
 #!  The input is chain (resp. cochain) morphism and an integer $n$. The output is the component of $\phi$ in index $n$, i.e., $\phi_n$(resp. $\phi^n$).
 #!  @Arguments phi, n
@@ -246,12 +249,16 @@ DeclareOperation( "IsQuasiIsomorphism", [ IsChainOrCochainMorphism, IsInt, IsInt
 #!  The command displays the components of the morphism between $m$ and $n$. 
 #!  @Arguments phi, m, n
 DeclareOperation( "Display", [ IsChainOrCochainMorphism, IsInt, IsInt ] );
-#!  @EndSection 
 
+#!  @Description
+#!  The command checks if the morphism is well-defined between $m$ and $n$. 
+#!  @Arguments phi, m, n
 DeclareOperation( "IsWellDefined", [ IsChainOrCochainMorphism, IsInt, IsInt ] );
+#!  @EndSection 
 
 #!  @Section Examples
 #!  @InsertChunk vec_2
+#  @Chunk vec_spaces_as_monoidal_category
 #!  @EndSection
 #######################################
 #

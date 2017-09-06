@@ -7,7 +7,7 @@ LoadPackage( "ComplexesForCAP" );
 AUTODOC_file_scan_list := [ "../PackageInfo.g" ];
 LoadPackage( "GAPDoc" );
 
-example_tree := ExtractExamples( Directory("./doc/"), "ComplexesForCAP.xml", AUTODOC_file_scan_list, 500 );
+example_tree := ExtractExamples( Directory("./doc/"), "ComplexesForCAP.xml", AUTODOC_file_scan_list, "Single" );
 
 RunExamples( example_tree, rec( compareFunction := "uptowhitespace" ) );
 
